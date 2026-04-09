@@ -537,6 +537,7 @@ def update_user_ldata(id_, key=None, value=None):
         "is_blacklist",
         "token",
         "time",
+        "TOPIC_ID",
     ]
     if key is None and value is None:
         if id_ in user_data:
@@ -547,6 +548,7 @@ def update_user_ldata(id_, key=None, value=None):
             user_data[id_] = updated_data
         return
     user_data.setdefault(id_, {})
+    user_data[id_].setdefault("TOPIC_ID", 0)
     user_data[id_][key] = value
 
 
